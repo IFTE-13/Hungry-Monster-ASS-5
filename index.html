@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>HUNGRY MONSTER</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- External Links -->
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+
+<body>
+    <header class="container mt-5">
+        <nav class="navbar navbar-expand-lg navbar-light bg-warning">
+            <div class="container-fluid">
+                <img src="index.jpeg" class="pic" alt="">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+                    <div class="navbar-nav">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        <a class="nav-link active" href="#">About</a>
+                        <a class="nav-link active" href="#">Food</a>
+                        <a class="nav-link active" href="#" >Blog</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <section class="container">
+        <div class="search-box my-5">
+            <input id="search-food" type="text" class="form-control" placeholder="Search for food...">
+            <button onclick="searchFoods()" class="btn btn-info search-btn">Search</button>
+        </div>
+        <div class="">
+            <div id="food-container" class="row search-result mx-auto px-4">
+
+            </div>
+        </section>
+        <h3 id="error" class="text-danger"></h3>
+        <div id="type" class="text-center">
+        </div>
+
+        <script src="script.js"></script>
+</body>
+
+</html>
