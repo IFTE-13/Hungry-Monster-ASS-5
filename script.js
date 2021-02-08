@@ -15,10 +15,10 @@ const displayFoods = foods => {
     foodContainer.innerHTML = '';
     foods.forEach(food => {
         const foodDiv = document.createElement('div');
-        const ingredients = food.strInstructions.replace(/(\r\n|\r|\n)/g, '<br>');
+        const strInstructions = food.strInstructions.replace(/(\r\n|\r|\n)/g, '<br>');
         foodDiv.className = 'single-result col-md-3 foodPicture align-items-center my-3 p-3';
         foodDiv.innerHTML = `
-        <div onclick="getFood('${food.strMeal}','${food.idMeal}', '${food.strMealThumb}', '${ingredients}', '${food.strIngredient1}','${food.strIngredient2}', '${food.strIngredient3}','${food.strIngredient4}','${food.strIngredient5}')">
+        <div onclick="getFood('${food.strMeal}','${food.idMeal}', '${food.strMealThumb}', '${strInstructions}', '${food.strIngredient1}','${food.strIngredient2}', '${food.strIngredient3}','${food.strIngredient4}','${food.strIngredient5}')">
             
         <div class="cardInside">
         <div class="">
@@ -40,12 +40,12 @@ const displayFoods = foods => {
         foodContainer.appendChild(foodDiv);
     })
 }
-const getFood = async (strMeal, idMeal, strMealThumb, ingredients, strIngredient1,strIngredient2,strIngredient3,strIngredient4,strIngredient5) => {
+const getFood = async (strMeal, idMeal, strMealThumb, strInstructions, strIngredient1,strIngredient2,strIngredient3,strIngredient4,strIngredient5) => {
     const url = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${idMeal}`;
     try {
         const res = await fetch(url);
         const data = await res.json();
-        displayFood(idMeal, strMeal, strMealThumb, ingredients, strIngredient1,strIngredient2,strIngredient3,strIngredient4,strIngredient5);
+        displayFood(idMeal, strMeal, strMealThumb, strInstructions, strIngredient1,strIngredient2,strIngredient3,strIngredient4,strIngredient5);
     }
     catch (error) {
         displayError('Sorry! ERROR:404, Please try again later!!!')
@@ -53,7 +53,7 @@ const getFood = async (strMeal, idMeal, strMealThumb, ingredients, strIngredient
 }
 
 
-const displayFood = (food, strMeal, strMealThumb, ingredients,strIngredient1,strIngredient2,strIngredient3,strIngredient4,strIngredient5) => {
+const displayFood = (food, strMeal, strMealThumb, strInstructions,strIngredient1,strIngredient2,strIngredient3,strIngredient4,strIngredient5) => {
    
     const foodDiv = document.getElementById('food-container');
     foodDiv.innerHTML = `<div  class=" mx-auto py-4">
@@ -68,7 +68,7 @@ const displayFood = (food, strMeal, strMealThumb, ingredients,strIngredient1,str
         <li>${strIngredient4}</li>
         <li>${strIngredient5}</li>
         </ul>     
-        <p align=left>Instruction<br> ${ingredients}</p>       
+        <p align=left>Instruction<br> ${strInstructions}</p>       
     </div> 
 `;
 
